@@ -1,0 +1,6 @@
+# Hardcoded secrets (ghost)
+
+**Source:** an n8n API key (a JWT literal) hardcoded near the top of many `.ps1` scripts (e.g. `patch_v3_upsert.ps1` line 2, and most `deploy_*`/`patch_*`/`get_*` scripts); plaintext SQL Server host/user/password in `MASTER_MAPPING.md` ("Build Decisions" table); and credential-id pointers in `sql_cred_id.txt`, `created_cred_ids.txt`.
+**Tag:** ghost.
+**Evidence it is dead (as wiring):** these literals are NOT what the live workflow authenticates with. The running workflow `6j8NPHZc9CFwQ5KP` references n8n stored credentials by id — `[sql-cred-id]` (Microsoft SQL) and `[airtable-cred-id]` (Airtable) — not any password or key written in a script or doc. The embedded JWT is a build-time convenience token that may be rotated/expired; the plaintext DB password is a document artefact, not a live connection string.
+**What a reader will mistake it for:** the real credentials to reuse. A reader (or a model) who copies the JWT or the SQL password to "connect the way the sync does" is grabbing a tripwire: the value may be stale, and it bypasses the n8n credential store the live system actually uses. Treat every hardcoded secret here as untrusted and out-of-band; the source of truth is the n8n credential entries by id, not these files. (This map does not reproduce the secret values — retrieve current credentials from n8n directly.)

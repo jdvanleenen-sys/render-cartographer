@@ -1,0 +1,8 @@
+# Margin Snapshot   (live)
+
+**Source:** base `appEXAMPLE0000001` / table `tblEXAMPLE0000007` (🏗️ Margin Analysis). 347 records at walk time (2026-08-15).
+**What it is:** one row = one margin snapshot of one project at one deal stage. A project accrues up to four rows as the deal moves Base → Acceptance → Lockdown → Closing; the current row carries the active flag.
+**Shape (the parts that matter, not all of them):** `Margin Label` (`fldEXAMPLE0000061`, primary formula: Project name + Status, or "NO DATA" when no project is linked) · `Status` (`fldEXAMPLE0000062`, single select: Base / Acceptance / Lockdown / Closing) · `Is Active Version` (`fldEXAMPLE0000063`, checked in 224 of 347 records) · the four stage dates (`fldEXAMPLE0000064`, `fldEXAMPLE0000065`, `fldEXAMPLE0000066`, `fldEXAMPLE0000067`) · `Month-Year (Closing)` (`fldEXAMPLE0000068`, derived from the closing date) · `Stage Sequence Number` (`fldEXAMPLE0000069`, orders the stages).
+Evidence notes: 80 of 347 records have no Status at all, and 8 of those are flagged active. The stage-order formula still carries a "Prelim" branch, but Prelim is not a Status choice — that branch can never fire.
+**Hits:** unchecking or moving `Is Active Version` silences or moves the margin alert (`fldEXAMPLE0000070`) — it only renders on active rows. Changing `Status` renames the row via the label and re-orders it via the sequence number. Clearing the closing date blanks `Month-Year (Closing)`, the month bucket reporting groups on.
+**Does not hit:** the project's other snapshots — stages are separate rows, so editing a Closing row never back-propagates to its Base row. Nothing enforces one active row per project; the flag is manual, and the 8 active-but-stageless rows prove it.

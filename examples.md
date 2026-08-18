@@ -1,25 +1,25 @@
-# Worked map — the Render Factory (flattened preview)
+# Worked map: the Render Factory (flattened preview)
 
-> GENERATED from `map/` by `verify/build-examples.mjs` — do not hand-edit this file. It is the
-> tour; the wanderable map is `map/` (start at `map/catalog.md`, open one card, then stop).
+> GENERATED from `map/` by `verify/build-examples.mjs`. Do not hand-edit this file. It is the
+> tour. The wanderable map is `map/` (start at `map/catalog.md`, open one card, then stop).
 
 ---
 
-# Render Factory — Catalog (front door)
+# Render Factory catalog (front door)
 
 Start here. Open ONE card, then stop. You never load this whole folder.
 
 The Render Factory is **6 tables** inside a 53-table base. Two more tables look like they belong and do not (see "wrong neighbour").
 
 **The spine**
-- Render Variants (Homeowner Portal Render Variants) -> cards/render-variants.md — the rendered room images the factory makes
-- Selections (Homeowner Portal Selections) -> cards/selections.md — what the buyer chose; drives the renders
+- Render Variants (Homeowner Portal Render Variants) -> cards/render-variants.md. The rendered room images the factory makes.
+- Selections (Homeowner Portal Selections) -> cards/selections.md. What the buyer chose. It drives the renders.
 
 **The input**
-- Home Photography Assets -> cards/home-photography-assets.md — the reference photos a render is built and checked against
+- Home Photography Assets -> cards/home-photography-assets.md. The reference photos a render is built and checked against.
 
 **The menu**
-- Catalogue Items / Categories / Packages -> cards/catalogue-items.md — the options a buyer picks from
+- Catalogue Items / Categories / Packages -> cards/catalogue-items.md. The options a buyer picks from.
 
 **Before you edit**
 - Ghost: "Selections 2 / 3 / 4" on Catalogue Items -> cards/ghost_catalogue-selections.md
@@ -43,7 +43,7 @@ Everything else in the base (Margin Analysis, Lot Financing, the four "Tasks" ta
 
 ---
 
-# Ghost — Catalogue Items "Selections 2 / 3 / 4"   (ghost)
+# Ghost: Catalogue Items "Selections 2 / 3 / 4"   (ghost)
 
 **Tag:** ghost
 **Source:** table `tblEXAMPLE0000001`, fields `fldEXAMPLE0000001` (2), `fldEXAMPLE0000002` (3), `fldEXAMPLE0000003` (4).
@@ -82,7 +82,7 @@ Everything else in the base (Margin Analysis, Lot Financing, the four "Tasks" ta
 
 ---
 
-# Change walk (planned extension) — sales staff capture construction-stage photos
+# Change walk (planned extension): sales staff capture construction-stage photos
 
 Not yet built. Walked as a planned extension so a collaborator can add it without breaking the spine. This is not a live noun.
 
@@ -95,7 +95,7 @@ Not yet built. Walked as a planned extension so a collaborator can add it withou
 
 ---
 
-# Change walk — the buyer swaps their fridge
+# Change walk: the buyer swaps their fridge
 
 1. Someone edits the appliance option on a Selection (cards/selections.md).
 2. The Selection's `Selection Signature` changes (the `fridge=` token).

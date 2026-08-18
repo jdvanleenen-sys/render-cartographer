@@ -1,4 +1,4 @@
-# Ghost — Total Mark Up $   (ghost)
+# Ghost: Total Mark Up $   (ghost)
 
 **Tag:** ghost
 **Source:** table `tblEXAMPLE0000007`, id `fldEXAMPLE0000050` (currency, manual).

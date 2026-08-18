@@ -1,4 +1,4 @@
-# Change walk — edit the live sync safely
+# Change walk: edit the live sync safely
 
 The trap this pack sets for every newcomer: "I'll open the workflow file and change it." There is no live workflow file. Here is the safe path.
 
@@ -8,4 +8,4 @@ The trap this pack sets for every newcomer: "I'll open the workflow file and cha
 4. **Never run `deploy_v2.ps1` to "redeploy."** It pushes `hfs_sync_v2_workflow.json` and would revert the live workflow from v3 back to v2 (create-not-upsert, plus the removed dedup nodes).
 5. **Sync the doc.** After the change, update `HFS_AIRTABLE_MAPPING.md`.
 
-**Does not hit:** the ~165 diagnostic scripts and the `wf_*.json` exports — none are wired to the live workflow, so leaving them untouched changes nothing.
+**Does not hit:** the ~165 diagnostic scripts and the `wf_*.json` exports. None are wired to the live workflow, so leaving them untouched changes nothing.

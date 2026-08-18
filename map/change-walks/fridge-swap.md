@@ -1,4 +1,4 @@
-# Change walk — the buyer swaps their fridge
+# Change walk: the buyer swaps their fridge
 
 1. Someone edits the appliance option on a Selection (cards/selections.md).
 2. The Selection's `Selection Signature` changes (the `fridge=` token).

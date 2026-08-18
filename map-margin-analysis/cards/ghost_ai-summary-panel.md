@@ -1,4 +1,4 @@
-# Ghost — the AI summary panel   (ghost)
+# Ghost: the AI summary panel   (ghost)
 
 **Tag:** ghost
 **Source:** table `tblEXAMPLE0000007`, fields `fldEXAMPLE0000039` (Attachments), `fldEXAMPLE0000040` (Attachment Summary), `fldEXAMPLE0000041` (Summary AI).

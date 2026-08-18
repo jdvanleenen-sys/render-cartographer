@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // Generate source-index.json entries from a live source. No jq needed.
 //
-// Database (Airtable) mode — index tables/fields from a saved list_tables dump:
+// Database (Airtable) mode: index tables/fields from a saved list_tables dump:
 //   node verify/build-source-index.mjs <base-dump.json> <tblId> [tblId...] [--write]
 //
-// Folder mode — index the real file paths of a folder territory:
+// Folder mode: index the real file paths of a folder territory:
 //   node verify/build-source-index.mjs --dir <folder> --key <name> [--write]
 //
 // --write merges into source-index.json; without it, the fragment is printed for review.
@@ -26,7 +26,7 @@ function mergeWrite(patch, msg) {
   for (const k of Object.keys(patch)) idx[k] = deepMerge(idx[k] || {}, patch[k]);
   writeFileSync(idxPath, JSON.stringify(idx, null, 2) + '\n');
   console.log(msg);
-  process.exit(0);  // stop here — folder mode must not fall through into database mode
+  process.exit(0);  // stop here, folder mode must not fall through into database mode
 }
 function deepMerge(a, b) {
   const out = { ...a };

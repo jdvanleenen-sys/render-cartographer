@@ -1,4 +1,4 @@
-# Change walk (planned extension) — sales staff capture construction-stage photos
+# Change walk (planned extension): sales staff capture construction-stage photos
 
 Not yet built. Walked as a planned extension so a collaborator can add it without breaking the spine. This is not a live noun.
 

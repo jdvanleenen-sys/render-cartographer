@@ -1,4 +1,4 @@
-# Change walk — <a realistic change someone will make>
+# Change walk: <a realistic change someone will make>
 
 <!-- Copy to map/change-walks/<change>.md. Trace one change through the nouns it touches, in order. -->
 

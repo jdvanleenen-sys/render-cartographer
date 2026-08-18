@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Coverage check for a folder territory: every real file must be ACCOUNTED FOR by the map —
+// Coverage check for a folder territory: every real file must be ACCOUNTED FOR by the map,
 // referenced by name in a card, claimed by a card's `**Covers:**` glob, a registered ghost,
 // or an explicit excluded-with-reason entry. An unaccounted file is a hole a reader falls
 // through, so this fails loud. (This turns rules.md §1's "account for every noun" into a guard.)
@@ -45,7 +45,7 @@ for (const f of files) {
   else if (exclG.some(c => c.path ? c.re.test(f) : c.re.test(b))) t.excluded++;
   else t.unaccounted.push(f);
 }
-console.log(`coverage: ${key} — ${files.length} files`);
+console.log(`coverage: ${key} (${files.length} files)`);
 console.log(`  referenced by name: ${t.referenced}`);
 console.log(`  covered by group:   ${t.grouped}`);
 console.log(`  ghost:              ${t.ghost}`);
@@ -57,5 +57,5 @@ if (t.unaccounted.length) {
   console.error('\nAccount for each: name it in a card, add a card **Covers:** glob, register it as a ghost, or add it to folders["' + key + '"].excluded with a reason.');
   process.exit(1);
 }
-console.log('  clean — every file is accounted for.');
+console.log('  clean. Every file is accounted for.');
 process.exit(0);

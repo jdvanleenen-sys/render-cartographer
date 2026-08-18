@@ -52,7 +52,7 @@ function checkFile(path) {
   for (const id of new Set(text.match(/\b(?:tbl|fld)[A-Za-z0-9]{14}\b/g) || [])) {
     if (!knownIds.has(id)) errs.push(`uncited: ${id} is not in source-index.json`);
   }
-  // 2. field citation — DATABASE territories only (map cites at least one tbl id). On a folder
+  // 2. field citation. DATABASE territories only (map cites at least one tbl id). On a folder
   //    or SQL territory a phrase like  field "Customer_No"  is a real column, not an Airtable
   //    field, and must not be flagged. Skip captures that are ids (checked by the anchor above).
   if (/\btbl[A-Za-z0-9]{14}\b/.test(text)) {
@@ -64,7 +64,7 @@ function checkFile(path) {
   }
   // primary table of this file = first table id cited
   const primaryTbl = (text.match(/\btbl[A-Za-z0-9]{14}\b/) || [])[0];
-  // 4. record count — only on the Source line (the line that cites the table). Field-level
+  // 4. record count. Only on the Source line (the line that cites the table). Field-level
   //    counts elsewhere should be written as "rows", not "records", and are left alone.
   if (primaryTbl && recordCounts[primaryTbl] != null) {
     for (const line of text.split('\n')) {
@@ -83,7 +83,7 @@ function checkFile(path) {
     .map(f => f.toLowerCase());
   if (citedFiles.length) {
     if (!knownFiles.size) {
-      errs.push(`unregistered-folder: cites files (${citedFiles.slice(0, 3).join(', ')}${citedFiles.length > 3 ? '…' : ''}) but no folder index is registered — run: node verify/build-source-index.mjs --dir <folder> --key <name> --write`);
+      errs.push(`unregistered-folder: cites files (${citedFiles.slice(0, 3).join(', ')}${citedFiles.length > 3 ? '…' : ''}) but no folder index is registered. Run: node verify/build-source-index.mjs --dir <folder> --key <name> --write`);
     } else {
       for (const f of citedFiles) if (!knownFiles.has(f)) errs.push(`uncited-file: ${f} is not in any registered folder index`);
     }

@@ -4,7 +4,7 @@ Write the collisions down. In this base the same word means different things, an
 
 ## "QA" is two things on one noun
 
-On **Render Variants**, the `Status` field can hold the value **"QA Passed"**, and there is a *separate* field `QA Status` holding **"Passed"**. A reader asked "is this render QA'd?" must know which field answers. `Status` is lifecycle (Ready then QA Passed). `QA Status` is the gate result (Passed or not).
+On **Render Variants**, the `Status` field can hold the value **"QA Passed"**, and there is a *separate* field `QA Status` holding **"Passed"**. A reader who asks "is this render QA'd?" has to know which field answers. `Status` is lifecycle (Ready, then QA Passed). `QA Status` is the gate result (Passed or not).
 
 ## "Is it good?" is three different fields on three nouns
 

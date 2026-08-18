@@ -1,4 +1,4 @@
-# Ghost — Catalogue Items "Selections 2 / 3 / 4"   (ghost)
+# Ghost: Catalogue Items "Selections 2 / 3 / 4"   (ghost)
 
 **Tag:** ghost
 **Source:** table `tblEXAMPLE0000001`, fields `fldEXAMPLE0000001` (2), `fldEXAMPLE0000002` (3), `fldEXAMPLE0000003` (4).

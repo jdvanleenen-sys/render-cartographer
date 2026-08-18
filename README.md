@@ -1,21 +1,33 @@
 # Wayfinder Cartographer
 
-A drop-in folder that turns an AI into a **Cartographer**. Point it at a body of work and it leaves a **map** a later reader can wander without reading the whole thing. The later reader is often a cold model. Sometimes a new person. Same map.
+**Point it at a body of work (a repo, a database, an automation folder, a vault) and it leaves a map the next person, or the next AI, can change safely without reading the whole thing.**
 
-This is not a diagnostician (it does not say why something failed) and not a tour (it does not narrate the whole thing). It hands you a catalog and doors.
-
-## Why this exists (the two-hour call)
-
-The people who get paid are the ones who can hand the next person — or the next AI — a system they can change *without* a two-hour handoff call. That is what this produces.
-
-**Before:** to safely change the HFS sync, read 183 files or book a two-hour call with whoever built it.
+**Before:** to safely change the HFS sync, read 183 files or book a two-hour handoff call with whoever built it.
 **After:** open the catalog, read one card, make the change. Two file-opens.
+
+The people who get paid are the ones who can hand off a system that way. That is what this produces, for a cold model or a new hire, the same map.
+
+```mermaid
+flowchart LR
+    C["catalog.md<br/>front door · points, stores nothing"]
+    K["one card<br/>what it is · why · what it Hits · the wrong neighbour"]
+    S(["stop<br/>two file-opens, ever"])
+    W["load the whole folder"]
+    C --> K --> S
+    C -. never .-> W
+    style W stroke:#c0392b,stroke-dasharray:4 4
+    style S stroke:#27ae60
+```
+
+Each card is tagged **live** (running), **leftover** (kept but dead), or **ghost** (looks real, is not), from evidence and not names.
 
 **See it work in 60 seconds (cold AI):** drop the `map-hfs-sync/` folder into any AI with no memory of your system and ask:
 
 > "Using only this folder, what breaks if I change the SQL query, and what does it NOT touch?"
 
-It answers correctly from one card (`sql-source`) and stops — a stranger, human or model, gets the answer without loading the rest. That is the whole product.
+It answers correctly from one card (`sql-source`) and stops. A stranger, human or model, gets the answer without loading the rest. That is the whole product.
+
+It is not a diagnostician (it does not say why something failed) and not a tour (it does not narrate the whole thing). It hands you a catalog and doors.
 
 ## Worked maps — proven across system shapes
 

@@ -1,0 +1,41 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Structural verifier (maps + flattened example)
+        run: node verify/verify_map.mjs map map-margin-analysis map-hfs-sync examples.md
+
+      - name: Coverage gate (n8n folder territory)
+        run: node verify/coverage.mjs map-hfs-sync hfs-airtable-mapping
+
+      - name: Every negative fixture must fail
+        run: |
+          for f in verify/fixtures/fail_*.md; do
+            if node verify/verify_map.mjs "$f" >/dev/null 2>&1; then
+              echo "::error::fixture passed but was supposed to fail: $f"
+              exit 1
+            fi
+            echo "ok (failed as required): $f"
+          done
+
+      - name: No real Airtable ids leaked (masking intact)
+        run: |
+          if grep -rEn '\b(app|tbl|rec|fld)[A-Za-z0-9]{14}\b' \
+               --include='*.md' --include='*.json' . \
+               | grep -v EXAMPLE; then
+            echo "::error::a real (unmasked) identifier is present"
+            exit 1
+          fi
+          echo "ok: no unmasked identifiers"

@@ -68,7 +68,11 @@ This is the ICM system-map form. The catalog is the front-door index. It points,
 
 ## Verify a map
 
-A map in this repo is checked by a script, not taken on trust. The checker is Node, with nothing to install.
+A map in this repo is checked by a script, not taken on trust, and the checks run on every push.
+
+![verify](https://github.com/jdvanleenen-sys/wayfinder-cartographer/actions/workflows/verify.yml/badge.svg)
+
+The checker is Node, with nothing to install.
 
 ```
 node verify/verify_map.mjs map examples.md
